@@ -285,6 +285,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Built with ❤️ for the Claude Code community**
-
 *Transform your UI development workflow with AI-powered design validation and iterative improvement loops.*
