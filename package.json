@@ -1,0 +1,86 @@
+{
+  "name": "claude-ui-workflow",
+  "version": "1.0.0",
+  "description": "AI-driven front-end design workflow using Playwright MCP with iterative agentic loops and visual intelligence",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "install-playwright": "node setup/install-playwright-mcp.js",
+    "setup": "npm run install-playwright && npm run playwright:install",
+    "playwright:install": "playwright install",
+    "playwright:install-deps": "playwright install-deps",
+    "test:visual": "playwright test --project=ai-visual-testing",
+    "test:visual:headed": "HEADLESS=false playwright test --project=ai-visual-testing",
+    "test:visual:update": "playwright test --update-snapshots",
+    "test:cross-browser": "playwright test",
+    "test:mobile": "playwright test --project=mobile-chrome --project=mobile-safari",
+    "test:tablet": "playwright test --project=tablet-chrome --project=tablet-safari",
+    "screenshots:baseline": "node scripts/visual-testing/generate-baseline.js",
+    "screenshots:compare": "node scripts/visual-testing/compare-screenshots.js",
+    "screenshots:approve": "node scripts/visual-testing/approve-screenshots.js",
+    "test:a11y": "playwright test tests/accessibility",
+    "test:performance": "playwright test tests/performance",
+    "analyze:visual": "node scripts/visual-testing/ai-analysis.js",
+    "report:generate": "node scripts/visual-testing/generate-report.js",
+    "worktree:create": "node scripts/git-worktree-manager.js create",
+    "worktree:cleanup": "node scripts/git-worktree-manager.js cleanup",
+    "parallel:start": "node scripts/parallel-claude-manager.js",
+    "package:create": "node packaging/workflow-packager.js",
+    "dev": "node index.js",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "claude",
+    "playwright",
+    "ui-testing",
+    "visual-testing",
+    "accessibility",
+    "ai-driven",
+    "design-workflow",
+    "mcp",
+    "responsive-design",
+    "automation"
+  ],
+  "author": "AI-Driven UI Workflow",
+  "license": "MIT",
+  "dependencies": {
+    "@playwright/test": "^1.40.0",
+    "playwright": "^1.40.0",
+    "@playwright/experimental-ct-react": "^1.40.0",
+    "pixelmatch": "^5.3.0",
+    "sharp": "^0.32.0",
+    "archiver": "^6.0.0"
+  },
+  "devDependencies": {
+    "playwright-lighthouse": "^4.0.0",
+    "axe-playwright": "^2.0.0",
+    "@axe-core/playwright": "^4.8.0"
+  },
+  "peerDependencies": {
+    "claude-code": ">=1.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/claude-ui-workflow.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-org/claude-ui-workflow/issues"
+  },
+  "homepage": "https://github.com/your-org/claude-ui-workflow#readme",
+  "files": [
+    "subagents/",
+    "commands/",
+    "workflows/",
+    "scripts/",
+    "config/",
+    "packaging/",
+    "setup/",
+    "index.js",
+    "CLAUDE.md",
+    "README.md"
+  ]
+}
